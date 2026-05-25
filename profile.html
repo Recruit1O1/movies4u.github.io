@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - MoviesForU</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <a href="homepage.html">MoviesForU</a>
+            </div>
+            <div class="nav-links">
+                <a href="movies.html">Films</a>
+                <a href="genres.html">Genres</a>
+                <a href="profile.html" style="color: var(--accent-green);">Profile</a>
+                <a href="aboutus.html">About</a>
+                <a href="feedback.html">Feedback</a>
+            </div>
+            <div class="nav-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Find a film, list, or member...">
+                </div>
+                <a href="addmovie.html" class="btn">Log Film</a>
+                <a href="login.html" class="btn primary">Sign In</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="profile-header">
+        <div class="profile-info">
+            <div class="avatar">
+                <img src="https://via.placeholder.com/150/2C3440/00E054?text=U" alt="User Avatar">
+            </div>
+            <div class="user-details">
+                <h1>MovieBuff99</h1>
+                <a href="profile.html" class="btn">Edit Profile</a>
+            </div>
+        </div>
+        
+        <div class="profile-stats">
+            <div class="stat-box">
+                <span class="stat-number">412</span>
+                <span class="stat-label">Films</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">34</span>
+                <span class="stat-label">Reviews</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">12</span>
+                <span class="stat-label">Lists</span>
+            </div>
+        </div>
+    </section>
+
+    <nav class="profile-nav">
+        <a href="profile.html" class="active">Profile</a>
+        <a href="catalogue.html">My Catalogue</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="#">Watchlist</a>
+        <a href="#">Lists</a>
+    </nav>
+
+    <div class="profile-content">
+        
+        <div class="profile-main">
+            <section class="favorite-films">
+                <div class="section-header">
+                    <h2>Favorite Films</h2>
+                </div>
+                <div class="favorites-grid">
+                    <div class="movie-card"><a href="#"><img src="images/Interstellar.png" alt="Interstellar"></a></div>
+                    <div class="movie-card"><a href="#"><img src="images/FightClub.png" alt="Fight Club"></a></div>
+                    <div class="movie-card"><a href="#"><img src="images/Spiderman.png" alt="Spiderman"></a></div>
+                    <div class="movie-card"><a href="#"><img src="images/TheGrandBudapestHotel.png" alt="The Grand Budapest Hotel"></a></div>
+                </div>
+            </section>
+
+            <section class="recent-activity">
+                <div class="section-header">
+                    <h2>Recent Activity</h2>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <img src="images/Sinners.png" alt="Sinners" class="activity-poster">
+                        <div class="activity-details">
+                            <h3>Sinners <span>2025</span></h3>
+                            <div class="rating">★★★★½</div>
+                            <p class="review-preview">Incredible atmosphere. Had me on the edge of my seat the entire time.</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <img src="images/Shrek.png" alt="Shrek" class="activity-poster">
+                        <div class="activity-details">
+                            <h3>Shrek <span>2001</span></h3>
+                            <div class="rating">★★★★★</div>
+                            <p class="review-preview">A timeless masterpiece. Rewatched for the 100th time.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <aside class="profile-sidebar">
+            <div class="sidebar-section">
+                <h3>Bio</h3>
+                <p>I watch movies instead of sleeping. Huge fan of sci-fi, horror, and anything with a good plot twist.</p>
+            </div>
+            <div class="sidebar-section">
+                <h3>Network</h3>
+                <p><strong>142</strong> Following</p>
+                <p><strong>89</strong> Followers</p>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 MoviesForU. Inspired by Letterboxd.</p>
+    </div>
+</footer>
+
+</body>
+</html>
