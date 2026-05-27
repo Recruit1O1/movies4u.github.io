@@ -799,3 +799,22 @@ select.form-input, textarea.form-input {
     font-size: 0.9rem;
     color: var(--text-main);
 }
+
+
+/* =========================================
+   FOOTER LINK STYLING
+   ========================================= */
+footer p {
+    color: var(--text-main);
+}
+
+footer a.footer-link {
+    color: var(--accent-green);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+footer a.footer-link:hover {
+    color: var(--text-light);
+}
