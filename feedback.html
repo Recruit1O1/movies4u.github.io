@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - MoviesForU</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo"><a href="index.html">MoviesForU</a></div>
+            <div class="nav-links">
+                <a href="profile.html" class="protected-link">Profile</a>
+                <a href="aboutus.html">About</a>
+                <a href="feedback.html" style="color: var(--accent-green);">Feedback</a>
+            </div>
+            <div class="nav-right">
+                <a href="index.html" class="btn">Back to Home</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <div class="auth-wrapper">
+        <div class="auth-box" style="max-width: 500px;">
+            <h2>Send Feedback</h2>
+            <p class="auth-subtitle">Spotted a bug or have a suggestion? Let us know!</p>
+            
+            <form class="auth-form" id="feedbackForm" onsubmit="handleFeedback(event)">
+                <div class="form-group">
+                    <label>Category</label>
+                    <select class="form-input" required>
+                        <option value="bug">Report a Bug</option>
+                        <option value="suggestion">Feature Suggestion</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea class="form-input" rows="5" placeholder="Tell us what's on your mind..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn primary full-width" id="feedbackBtn">Submit Feedback</button>
+            </form>
+            
+            <div id="feedback-success" class="success-message" style="display: none; margin-top: 1rem;">
+                Thank you! Your feedback has been sent.
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function handleFeedback(event) {
+        event.preventDefault();
+        const btn = document.getElementById('feedbackBtn');
+        const successMsg = document.getElementById('feedback-success');
+        
+        btn.textContent = 'Sending...';
+        btn.style.opacity = '0.7';
+        
+        setTimeout(() => {
+            btn.style.display = 'none';
+            successMsg.style.display = 'block';
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
