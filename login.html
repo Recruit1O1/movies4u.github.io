@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In - MoviesForU</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        // If already logged in, redirect away from the login page
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
 </head>
 <body>
 
@@ -12,12 +18,10 @@
     <div class="container">
         <nav>
             <div class="logo">
-                <a href="homepage.html">MoviesForU</a>
+                <a href="index.html">MoviesForU</a>
             </div>
 
             <div class="nav-links">
-                <a href="movies.html">Films</a>
-                <a href="genres.html">Genres</a>
                 <a href="profile.html">Profile</a>
                 <a href="aboutus.html">About</a>
                 <a href="feedback.html">Feedback</a>
@@ -27,7 +31,7 @@
                 <div class="search-box">
                     <input type="text" placeholder="Find a film, list, or member...">
                 </div>
-                </div>
+            </div>
         </nav>
     </div>
 </header>
@@ -39,6 +43,8 @@
             <p class="auth-subtitle">Welcome back to MoviesForU.</p>
             
             <form class="auth-form" onsubmit="handleLogin(event)">
+                <div id="login-error" class="error-message" style="display: none;"></div>
+
                 <div class="form-group">
                     <label for="username">Username or Email</label>
                     <input type="text" id="username" class="form-input" placeholder="e.g. MovieBuff99" required>
@@ -67,17 +73,35 @@
 </footer>
 
 <script>
-    
     function handleLogin(event) {
         event.preventDefault();
         
+        const usernameInput = document.getElementById('username').value.trim();
+        const passwordInput = document.getElementById('password').value;
+        const errorDiv = document.getElementById('login-error');
         const btn = document.getElementById('loginBtn');
+
+        // Reset error state
+        errorDiv.style.display = 'none';
+        errorDiv.textContent = '';
+
+        // Validate credentials (Simulated Backend)
+        if (usernameInput !== 'MovieBuff99' || passwordInput !== 'password123') {
+            errorDiv.textContent = 'Incorrect username or password. (Hint: MovieBuff99 / password123)';
+            errorDiv.style.display = 'block';
+            return;
+        }
+
+        // Proceed with login
         btn.textContent = 'Signing in...';
         btn.style.opacity = '0.7';
         btn.style.cursor = 'wait';
 
         setTimeout(() => {
-            window.location.href = 'homepage.html';
+            // Set session storage and redirect
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('username', usernameInput);
+            window.location.href = 'index.html';
         }, 800);
     }
 </script>
