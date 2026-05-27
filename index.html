@@ -13,11 +13,11 @@
         <nav>
             <div class="logo"><a href="index.html">MoviesForU</a></div>
 
-            <div class="nav-links">
-                <a href="profile.html" class="protected-link">Profile</a>
-                <a href="aboutus.html">About</a>
-                <a href="feedback.html">Feedback</a>
-            </div>
+            <ul class="nav-links">
+                <li><a href="profile.html" class="protected-link">Profile</a></li>
+                <li><a href="aboutus.html">About</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
 
             <div class="nav-right" id="nav-actions">
                 <div class="search-box">
@@ -30,11 +30,12 @@
     </div>
 </header>
 
-<main>
+<article>
     <section class="hero">
         <div class="container">
             <h1>Track films you’ve watched.</h1>
             <p>Save those you want to see. Tell your friends what's good.</p>
+            <a href="#popular-section" class="btn primary" style="margin-top: 20px; display: inline-block;">Jump to Popular Movies</a>
         </div>
     </section>
 
@@ -69,7 +70,6 @@
             </div>
             <div class="movie-wrapper">
                 <button class="scroll-btn left" onclick="scrollGrid(this, -800)">❮</button>
-
                 <div class="movie-grid">
                     <div class="movie-card"><a href="#"><img src="images/JohnWick.png" alt="John Wick"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/Matrix.png" alt="Matrix"></a></div>
@@ -82,7 +82,6 @@
                     <div class="movie-card"><a href="#"><img src="images/EdgeOfTomorrow.png" alt="Edge of Tomorrow"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/BladeRunner.png" alt="Blade Runner 2049"></a></div>
                 </div>
-
                 <button class="scroll-btn right" onclick="scrollGrid(this, 800)">❯</button>
             </div>
         </section>
@@ -93,7 +92,6 @@
             </div>
             <div class="movie-wrapper">
                 <button class="scroll-btn left" onclick="scrollGrid(this, -800)">❮</button>
-
                 <div class="movie-grid">
                     <div class="movie-card"><a href="#"><img src="images/Ted.png" alt="Ted"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/TheNakedGun.png" alt="The Naked Gun"></a></div>
@@ -106,7 +104,6 @@
                     <div class="movie-card"><a href="#"><img src="images/TheFamilyPlan2.png" alt="The Family Plan 2"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/TheGrandBudapestHotel.png" alt="The Grand Budapest Hotel"></a></div>
                 </div>
-
                 <button class="scroll-btn right" onclick="scrollGrid(this, 800)">❯</button>
             </div>
         </section>
@@ -117,7 +114,6 @@
             </div>
             <div class="movie-wrapper">
                 <button class="scroll-btn left" onclick="scrollGrid(this, -800)">❮</button>
-
                 <div class="movie-grid">
                     <div class="movie-card"><a href="#"><img src="images/Us.png" alt="Us"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/Weapons.png" alt="Weapons"></a></div>
@@ -130,7 +126,6 @@
                     <div class="movie-card"><a href="#"><img src="images/TheAstronaut.png" alt="The Astronaut"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/28DaysLater.png" alt="28 Days Later"></a></div>
                 </div>
-
                 <button class="scroll-btn right" onclick="scrollGrid(this, 800)">❯</button>
             </div>
         </section>
@@ -141,7 +136,6 @@
             </div>
             <div class="movie-wrapper">
                 <button class="scroll-btn left" onclick="scrollGrid(this, -800)">❮</button>
-
                 <div class="movie-grid">
                     <div class="movie-card"><a href="#"><img src="images/WarMachine.png" alt="War Machine"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/PacificRim.png" alt="Pacific Rim"></a></div>
@@ -154,12 +148,17 @@
                     <div class="movie-card"><a href="#"><img src="images/Prometheus.png" alt="Prometheus"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/TheRunningMan.png" alt="The Running Man"></a></div>
                 </div>
-
                 <button class="scroll-btn right" onclick="scrollGrid(this, 800)">❯</button>
             </div>
         </section>
+        
+        <div class="disclaimer-box">
+            <p><strong>Published Website URL:</strong> <a href="#" style="color: var(--accent-green);">https://www.moviesforu.com</a></p>
+            <br>
+            <p style="font-size: 0.85rem; color: #aaa;">Disclaimer: This website is created for education and non-commercial use only. It is an assignment for completion of unit, DBI211 Fundamentals of Web Technology based on the Foundation (IT/Multimedia) course from Swinburne University of Technology Sarawak Campus.</p>
+        </div>
     </div>
-</main>
+</article>
 
 <footer>
     <div class="container">
@@ -213,20 +212,21 @@
 </div>
 
 <script>
-    // 1. Grid Scrolling
+    // Requirement 13: Comments explaining Javascript complex functions
+    
+    /* Function to smoothly scroll the horizontal movie grids */
     function scrollGrid(buttonElement, scrollOffset) {
         const grid = buttonElement.parentElement.querySelector('.movie-grid');
         grid.scrollBy({ left: scrollOffset, behavior: 'smooth' });
     }
 
-    // 2. Authentication Check for Header
+    /* Event listener checks local storage to modify DOM based on login state */
     document.addEventListener('DOMContentLoaded', () => {
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
         const protectedLinks = document.querySelectorAll('.protected-link');
 
         if (isLoggedIn) {
             const username = localStorage.getItem('username') || 'MovieBuff99';
-            // Swap the Sign in button out for the Profile Link
             const headerRight = document.getElementById('nav-actions');
             headerRight.innerHTML = `
                 <div class="search-box">
@@ -234,12 +234,11 @@
                 </div>
                 <a href="#" onclick="openLogModal(); return false;" class="btn">Log Film</a>
                 <a href="profile.html" class="nav-profile-link">
-                    <img src="images/odst.jpg" class="nav-avatar">
+                    <img src="images/odst.jpg" class="nav-avatar" alt="Avatar">
                     <span>${username}</span>
                 </a>
             `;
         } else {
-            // Intercept clicks to protected links if not logged in
             protectedLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -249,13 +248,12 @@
         }
     });
 
-    // 3. Live Search Functionality
+    /* Live search: iterates through movie cards and hides those that don't match query */
     function filterMovies() {
         const query = document.getElementById('searchInput').value.toLowerCase();
         const cards = document.querySelectorAll('.movie-card');
 
         cards.forEach(card => {
-            // Find the image alt tag (since it holds the movie title)
             const img = card.querySelector('img');
             if (img && img.alt.toLowerCase().includes(query)) {
                 card.style.display = 'block';
@@ -265,9 +263,7 @@
         });
     }
 
-    // 4. Modal Functionality
     function openReviewModal(title, imgSrc) {
-        // Must be logged in to review
         if(localStorage.getItem('isLoggedIn') !== 'true') {
             window.location.href = 'login.html';
             return;
@@ -289,19 +285,12 @@
         document.getElementById(modalId).style.display = 'none';
     }
 
-    // Close modals if clicking outside the box
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal-overlay')) {
-            event.target.style.display = "none";
-        }
-    }
-
-    // Generic form submission simulation for modals
+    /* Generic form submission handler */
     function submitForm(event, modalId, successMessage) {
         event.preventDefault();
-        alert(successMessage); // Show a quick alert
-        closeModal(modalId);   // Close the modal
-        event.target.reset();  // Clear the form fields
+        alert(successMessage); 
+        closeModal(modalId);   
+        event.target.reset();  
     }
 </script>
 
