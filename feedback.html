@@ -12,11 +12,11 @@
     <div class="container">
         <nav>
             <div class="logo"><a href="index.html">MoviesForU</a></div>
-            <div class="nav-links">
-                <a href="profile.html" class="protected-link">Profile</a>
-                <a href="aboutus.html">About</a>
-                <a href="feedback.html" style="color: var(--accent-green);">Feedback</a>
-            </div>
+            <ul class="nav-links">
+                <li><a href="profile.html" class="protected-link">Profile</a></li>
+                <li><a href="aboutus.html">About</a></li>
+                <li><a href="feedback.html" style="color: var(--accent-green);">Feedback</a></li>
+            </ul>
             <div class="nav-right">
                 <a href="index.html" class="btn">Back to Home</a>
             </div>
@@ -24,26 +24,65 @@
     </div>
 </header>
 
-<main class="container">
+<article class="container">
     <div class="auth-wrapper">
-        <div class="auth-box" style="max-width: 500px;">
+        <div class="auth-box" style="max-width: 600px;">
             <h2>Send Feedback</h2>
             <p class="auth-subtitle">Spotted a bug or have a suggestion? Let us know!</p>
             
             <form class="auth-form" id="feedbackForm" onsubmit="handleFeedback(event)">
-                <div class="form-group">
-                    <label>Category</label>
-                    <select class="form-input" required>
-                        <option value="bug">Report a Bug</option>
-                        <option value="suggestion">Feature Suggestion</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
                 
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea class="form-input" rows="5" placeholder="Tell us what's on your mind..." required></textarea>
-                </div>
+                <fieldset>
+                    <legend>Contact Details</legend>
+                    <table class="form-table">
+                        <tr>
+                            <td><label for="fname">Name:</label></td>
+                            <td><input type="text" id="fname" class="form-input" placeholder="Your name" required style="width: 100%;"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="femail">Email:</label></td>
+                            <td><input type="email" id="femail" class="form-input" placeholder="you@email.com" required style="width: 100%;"></td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Feedback Details</legend>
+                    <table class="form-table">
+                        <tr>
+                            <td><label for="fcategory">Category:</label></td>
+                            <td>
+                                <select id="fcategory" class="form-input" required style="width: 100%;">
+                                    <option value="bug">Report a Bug</option>
+                                    <option value="suggestion">Feature Suggestion</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Rate the Site:</label></td>
+                            <td>
+                                <input type="radio" id="rate5" name="rating" value="5" required>
+                                <label for="rate5">Excellent</label><br>
+                                <input type="radio" id="rate3" name="rating" value="3">
+                                <label for="rate3">Average</label><br>
+                                <input type="radio" id="rate1" name="rating" value="1">
+                                <label for="rate1">Needs Work</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="fmessage">Message:</label></td>
+                            <td><textarea id="fmessage" class="form-input" rows="4" placeholder="Tell us what's on your mind..." required style="width: 100%;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="checkbox" id="fsubscribe" name="subscribe" value="yes">
+                                <label for="fsubscribe">Subscribe to newsletter</label>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
                 
                 <button type="submit" class="btn primary full-width" id="feedbackBtn">Submit Feedback</button>
             </form>
@@ -53,7 +92,13 @@
             </div>
         </div>
     </div>
-</main>
+</article>
+
+<footer>
+    <div class="container">
+        <p>© <a href="aboutus.html" class="footer-link">Group 9</a> | Last updated: May 27, 2026</p>
+    </div>
+</footer>
 
 <script>
     function handleFeedback(event) {
