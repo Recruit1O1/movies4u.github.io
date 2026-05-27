@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - MoviesForU</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        // Security Check: Kick user back to login if they aren't authenticated
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
 </head>
 <body>
 
@@ -12,11 +18,9 @@
     <div class="container">
         <nav>
             <div class="logo">
-                <a href="homepage.html">MoviesForU</a>
+                <a href="index.html">MoviesForU</a>
             </div>
             <div class="nav-links">
-                <a href="movies.html">Films</a>
-                <a href="genres.html">Genres</a>
                 <a href="profile.html" style="color: var(--accent-green);">Profile</a>
                 <a href="aboutus.html">About</a>
                 <a href="feedback.html">Feedback</a>
@@ -25,8 +29,11 @@
                 <div class="search-box">
                     <input type="text" placeholder="Find a film, list, or member...">
                 </div>
-                <a href="addmovie.html" class="btn">Log Film</a>
-                <a href="login.html" class="btn primary">Sign In</a>
+                <a href="#" onclick="openLogModal(); return false;" class="btn">Log Film</a>
+                <a href="profile.html" class="nav-profile-link">
+                    <img src="images/odst.jpg" alt="User Avatar" class="nav-avatar">
+                    <span id="header-username">User</span>
+                </a>
             </div>
         </nav>
     </div>
@@ -36,97 +43,242 @@
     <section class="profile-header">
         <div class="profile-info">
             <div class="avatar">
-                <img src="https://via.placeholder.com/150/2C3440/00E054?text=U" alt="User Avatar">
+                <img src="images/odst.jpg" alt="User Avatar">
             </div>
             <div class="user-details">
-                <h1>MovieBuff99</h1>
-                <a href="profile.html" class="btn">Edit Profile</a>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <h1 id="profile-username">User</h1>
+                    <a href="#" class="btn" style="padding: 5px 10px; font-size: 0.75rem;">Edit Profile</a>
+                    <button onclick="handleLogout()" class="btn" style="background: transparent; border: 1px solid var(--text-main); padding: 5px 10px; font-size: 0.75rem;">Log Out</button>
+                </div>
+                <p class="profile-bio">Film enthusiast, aspiring critic, and lover of all things sci-fi. I rate strictly but fairly. "Cinema is a matter of what's in the frame and what's out." - Martin Scorsese.</p>
             </div>
         </div>
         
         <div class="profile-stats">
-            <div class="stat-box">
-                <span class="stat-number">412</span>
-                <span class="stat-label">Films</span>
-            </div>
-            <div class="stat-box">
-                <span class="stat-number">34</span>
-                <span class="stat-label">Reviews</span>
-            </div>
-            <div class="stat-box">
-                <span class="stat-number">12</span>
-                <span class="stat-label">Lists</span>
-            </div>
+            <div class="stat-box"><span class="stat-number">124</span><span class="stat-label">Films</span></div>
+            <div class="stat-box"><span class="stat-number">42</span><span class="stat-label">Reviews</span></div>
+            <div class="stat-box"><span class="stat-number">6</span><span class="stat-label">Lists</span></div>
         </div>
     </section>
 
     <nav class="profile-nav">
-        <a href="profile.html" class="active">Profile</a>
-        <a href="catalogue.html">My Catalogue</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="#">Watchlist</a>
-        <a href="#">Lists</a>
+        <a href="#" class="tab-link active" onclick="switchTab(event, 'tab-overview')">Profile</a>
+        <a href="#" class="tab-link" onclick="switchTab(event, 'tab-catalogue')">My Catalogue</a>
+        <a href="#" class="tab-link" onclick="switchTab(event, 'tab-logged')">Logged Films</a>
+        <a href="#" class="tab-link" onclick="switchTab(event, 'tab-reviews')">Reviews</a>
     </nav>
 
-    <div class="profile-content">
-        
-        <div class="profile-main">
-            <section class="favorite-films">
-                <div class="section-header">
-                    <h2>Favorite Films</h2>
-                </div>
-                <div class="favorites-grid">
-                    <div class="movie-card"><a href="#"><img src="images/Interstellar.png" alt="Interstellar"></a></div>
-                    <div class="movie-card"><a href="#"><img src="images/FightClub.png" alt="Fight Club"></a></div>
-                    <div class="movie-card"><a href="#"><img src="images/Spiderman.png" alt="Spiderman"></a></div>
-                    <div class="movie-card"><a href="#"><img src="images/TheGrandBudapestHotel.png" alt="The Grand Budapest Hotel"></a></div>
-                </div>
-            </section>
+    <div id="tab-overview" class="tab-content active">
+        <div class="profile-content">
+            <div class="profile-main">
+                <section class="favorite-films">
+                    <div class="section-header">
+                        <h2>Favorite Films</h2>
+                    </div>
+                    <div class="favorites-grid">
+                        <div class="movie-card"><a href="#"><img src="images/Interstellar.png" alt="Interstellar"></a></div>
+                        <div class="movie-card"><a href="#"><img src="images/FightClub.png" alt="Fight Club"></a></div>
+                        <div class="movie-card"><a href="#"><img src="images/Matrix.png" alt="Matrix"></a></div>
+                        <div class="movie-card"><a href="#"><img src="images/TheGrandBudapestHotel.png" alt="The Grand Budapest Hotel"></a></div>
+                    </div>
+                </section>
 
-            <section class="recent-activity">
-                <div class="section-header">
-                    <h2>Recent Activity</h2>
-                </div>
-                <div class="activity-list">
-                    <div class="activity-item">
-                        <img src="images/Sinners.png" alt="Sinners" class="activity-poster">
-                        <div class="activity-details">
-                            <h3>Sinners <span>2025</span></h3>
-                            <div class="rating">★★★★½</div>
-                            <p class="review-preview">Incredible atmosphere. Had me on the edge of my seat the entire time.</p>
+                <section class="recent-activity">
+                    <div class="section-header">
+                        <h2>Recent Reviews</h2>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <img src="images/Sinners.png" alt="Sinners" class="activity-poster">
+                            <div class="activity-details">
+                                <h3>Sinners <span>2025</span></h3>
+                                <div class="rating">★★★★½</div>
+                                <p class="review-preview">Incredible atmosphere. Had me on the edge of my seat the entire time. The cinematography alone is worth the watch.</p>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <img src="images/Shrek.png" alt="Shrek" class="activity-poster">
+                            <div class="activity-details">
+                                <h3>Shrek <span>2001</span></h3>
+                                <div class="rating">★★★★★</div>
+                                <p class="review-preview">A timeless masterpiece. Rewatched for the 100th time and the jokes still land perfectly.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="activity-item">
-                        <img src="images/Shrek.png" alt="Shrek" class="activity-poster">
-                        <div class="activity-details">
-                            <h3>Shrek <span>2001</span></h3>
-                            <div class="rating">★★★★★</div>
-                            <p class="review-preview">A timeless masterpiece. Rewatched for the 100th time.</p>
-                        </div>
-                    </div>
+                </section>
+            </div>
+
+            <aside class="profile-sidebar">
+                <div class="sidebar-section">
+                    <h3>Network</h3>
+                    <p><strong>142</strong> Following</p>
+                    <p><strong>89</strong> Followers</p>
                 </div>
-            </section>
+            </aside>
         </div>
-
-        <aside class="profile-sidebar">
-            <div class="sidebar-section">
-                <h3>Bio</h3>
-                <p>I watch movies instead of sleeping. Huge fan of sci-fi, horror, and anything with a good plot twist.</p>
-            </div>
-            <div class="sidebar-section">
-                <h3>Network</h3>
-                <p><strong>142</strong> Following</p>
-                <p><strong>89</strong> Followers</p>
-            </div>
-        </aside>
     </div>
+
+    <div id="tab-catalogue" class="tab-content" style="display: none;">
+        <div class="section-header">
+            <h2>All Logged Films (Posters)</h2>
+        </div>
+        <div class="catalogue-grid">
+            <div class="movie-card"><img src="images/Jaws.png" alt="Jaws"></div>
+            <div class="movie-card"><img src="images/JurassicPark.png" alt="Jurassic Park"></div>
+            <div class="movie-card"><img src="images/JohnWick.png" alt="John Wick"></div>
+            <div class="movie-card"><img src="images/Us.png" alt="Us"></div>
+            <div class="movie-card"><img src="images/Ted.png" alt="Ted"></div>
+            <div class="movie-card"><img src="images/Blade.png" alt="Blade"></div>
+            <div class="movie-card"><img src="images/TotallyKiller.png" alt="Totally Killer"></div>
+            <div class="movie-card"><img src="images/AvengersInfinityWar.png" alt="Avengers"></div>
+            <div class="movie-card"><img src="images/Spiderman.png" alt="Spiderman"></div>
+            <div class="movie-card"><img src="images/TheTerminator.png" alt="Terminator"></div>
+            <div class="movie-card"><img src="images/Rambo.png" alt="Rambo"></div>
+            <div class="movie-card"><img src="images/BadBoys.png" alt="Bad Boys"></div>
+        </div>
+    </div>
+
+    <div id="tab-logged" class="tab-content" style="display: none;">
+        <div class="section-header">
+            <h2>Diary</h2>
+        </div>
+        <div class="logged-list" id="loggedFilmsContainer">
+            <div class="logged-item">
+                <div class="logged-details">
+                    <h3>Dune: Part Two</h3>
+                    <p>Watched on: 2026-05-15</p>
+                </div>
+            </div>
+            <div class="logged-item">
+                <div class="logged-details">
+                    <h3>The Matrix</h3>
+                    <p>Watched on: 2026-05-10</p>
+                </div>
+            </div>
+            <div class="logged-item">
+                <div class="logged-details">
+                    <h3>Blade Runner 2049</h3>
+                    <p>Watched on: 2026-05-02</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tab-reviews" class="tab-content" style="display: none;">
+        <div class="section-header">
+            <h2>Reviews</h2>
+        </div>
+        <div class="activity-list" style="max-width: 800px;">
+            <div class="activity-item">
+                <img src="images/JurassicPark.png" alt="Jurassic Park" class="activity-poster">
+                <div class="activity-details">
+                    <h3>Jurassic Park <span>1993</span></h3>
+                    <div class="rating">★★★★★</div>
+                    <p class="review-preview">The CGI still holds up better than most modern blockbusters. Spielberg at his absolute peak.</p>
+                </div>
+            </div>
+            <div class="activity-item">
+                <img src="images/TotallyKiller.png" alt="Totally Killer" class="activity-poster">
+                <div class="activity-details">
+                    <h3>Totally Killer <span>2023</span></h3>
+                    <div class="rating">★★★</div>
+                    <p class="review-preview">A fun, goofy slasher with some cool time-travel elements, but ultimately a bit forgettable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </main>
 
 <footer>
     <div class="container">
-        <p>© 2026 MoviesForU. All Rights Reserved.</p>
+        <p>© 2026 MoviesForU. Inspired by Letterboxd.</p>
     </div>
 </footer>
+
+<div class="modal-overlay" id="logModal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal('logModal')">×</button>
+        <h2 style="margin-bottom: 1.5rem;">Log a Film</h2>
+        
+        <form class="auth-form" onsubmit="submitLogForm(event)">
+            <div class="form-group">
+                <label>Name of Film</label>
+                <input type="text" id="log-movie-name" class="form-input" placeholder="e.g., The Godfather" required>
+            </div>
+            <div class="form-group">
+                <label>Date Watched</label>
+                <input type="date" id="log-movie-date" class="form-input" required>
+            </div>
+            <button type="submit" class="btn primary full-width">Save to Diary</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Load dynamic username
+    const currentUsername = localStorage.getItem('username') || 'MovieBuff99';
+    document.getElementById('header-username').textContent = currentUsername;
+    document.getElementById('profile-username').textContent = currentUsername;
+
+    // Logout functionality
+    function handleLogout() {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('username');
+        window.location.href = 'index.html'; 
+    }
+
+    // Modal Functionality
+    function openLogModal() {
+        document.getElementById('logModal').style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    // New Function to handle Logging the film to the Diary Tab
+    function submitLogForm(event) {
+        event.preventDefault(); // Prevent page refresh
+        
+        // Grab values from the input fields
+        const movieName = document.getElementById('log-movie-name').value;
+        const watchDate = document.getElementById('log-movie-date').value;
+        
+        // Create a new HTML block for the logged film
+        const newLogEntry = document.createElement('div');
+        newLogEntry.className = 'logged-item';
+        newLogEntry.innerHTML = `
+            <div class="logged-details">
+                <h3>${movieName}</h3>
+                <p>Watched on: ${watchDate}</p>
+            </div>
+        `;
+
+        // Inject the new block at the top of the Diary container
+        const container = document.getElementById('loggedFilmsContainer');
+        container.prepend(newLogEntry);
+
+        alert('Film Logged to Diary!'); 
+        closeModal('logModal');   
+        event.target.reset();  
+    }
+
+    // Tab Switching Logic
+    function switchTab(event, tabId) {
+        event.preventDefault();
+        
+        const tabLinks = document.querySelectorAll('.tab-link');
+        tabLinks.forEach(link => link.classList.remove('active'));
+        
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => content.style.display = 'none');
+        
+        event.currentTarget.classList.add('active');
+        document.getElementById(tabId).style.display = 'block';
+    }
+</script>
 
 </body>
 </html>
