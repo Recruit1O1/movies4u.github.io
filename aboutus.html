@@ -12,11 +12,11 @@
     <div class="container">
         <nav>
             <div class="logo"><a href="index.html">MoviesForU</a></div>
-            <div class="nav-links">
-                <a href="profile.html" class="protected-link">Profile</a>
-                <a href="aboutus.html" style="color: var(--accent-green);">About</a>
-                <a href="feedback.html">Feedback</a>
-            </div>
+            <ul class="nav-links">
+                <li><a href="profile.html" class="protected-link">Profile</a></li>
+                <li><a href="aboutus.html" style="color: var(--accent-green);">About</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
             <div class="nav-right">
                 <a href="index.html" class="btn">Back to Home</a>
             </div>
@@ -24,37 +24,101 @@
     </div>
 </header>
 
-<main class="container">
+<article class="container">
     <section class="about-section">
         <div class="section-header" style="text-align: center; margin-top: 2rem;">
             <h1>About Our Team</h1>
             <p style="color: var(--text-main); margin-top: 1rem;">The minds behind the madness.</p>
+            
+            <div style="margin-top: 15px;">
+                <a href="https://www.swinburne.edu.my/" target="_blank" style="color: var(--accent-green); text-decoration: underline; margin-right: 15px;">Swinburne University</a>
+                <a href="https://letterboxd.com" target="_blank" style="color: var(--accent-green); text-decoration: underline;">Inspired by Letterboxd</a>
+            </div>
         </div>
 
         <div class="team-grid">
             <div class="team-card">
-                <img src="images/maximus.jpeg" alt="Member 1">
+                <img src="images/maximus.jpeg" alt="Maximus Hong Yi Wei">
                 <h3>Maximus Hong Yi Wei</h3>
                 <p class="student-id">ID: 104409371</p>
                 <p class="role">Group Member</p>
+                <p class="member-desc">Maximus handles the front-end layout and CSS fluid grid implementation, ensuring the site is responsive across devices.</p>
             </div>
 
             <div class="team-card">
-                <img src="images/josef.jpeg" alt="Member 2">
+                <img src="images/josef.jpeg" alt="Josef Alister Ong">
                 <h3>Josef Alister Ong</h3>
                 <p class="student-id">ID: 104407964</p>
                 <p class="role">Group Leader</p>
+                <p class="member-desc">Josef oversees the project schedule, manages the GitHub repository, and programs the JavaScript form logic.</p>
             </div>
 
             <div class="team-card">
-                <img src="images/morven.jpeg" alt="Member 3">
+                <img src="images/morven.jpeg" alt="Morven Yaw Chuen Kam">
                 <h3>Morven Yaw Chuen Kam</h3>
                 <p class="student-id">ID: 105804294</p>
                 <p class="role">Group Member</p>
+                <p class="member-desc">Morven curates the media content, implements semantic HTML elements, and conducts quality assurance testing.</p>
             </div>
         </div>
+
+        <div style="margin-top: 4rem;">
+            <table class="academic-table">
+                <caption>Group 9 Project Timeline & Responsibilities</caption>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Task</th>
+                        <th>Assigned To</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Phase 1: Design</td>
+                        <td>Wireframing</td>
+                        <td>Josef</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Asset Collection</td>
+                        <td>Morven</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: center; background-color: var(--bg-dark); font-style: italic;">Mid-Project Review</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Phase 2: Development</td>
+                        <td>HTML & CSS Construction</td>
+                        <td>Maximus</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript Integration</td>
+                        <td>Josef & Morven</td>
+                        <td>Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="about-lists">
+                <h3>Key Features Implemented:</h3>
+                <ul>
+                    <li>Fluid Responsive Layout</li>
+                    <li>Dynamic JavaScript Forms</li>
+                    <li>Swinburne Academic Compliance:
+                        <ul>
+                            <li>Proper structural tags used.</li>
+                            <li>Form validation utilized.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
     </section>
-</main>
+</article>
 
 <footer>
     <div class="container">
