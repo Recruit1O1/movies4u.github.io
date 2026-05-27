@@ -69,7 +69,7 @@ nav {
     letter-spacing: -0.5px;
 }
 
-/* Unordered list styling for navigation  */
+/* Unordered list styling for navigation (Assignment Requirement) */
 ul.nav-links {
     list-style: none; /* Removes bullet points */
     display: flex;
@@ -399,7 +399,7 @@ select.form-input, textarea.form-input {
     color: var(--accent-green);
 }
 
-/* Form Styling Additions */
+/* Form Styling Additions for Assignment Requirements */
 fieldset {
     border: 1px solid var(--text-main);
     border-radius: 8px;
@@ -450,7 +450,7 @@ legend {
     max-width: 450px;
     position: relative;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-    /* Slide up animation  */
+    /* Slide up animation for complex CSS requirement */
     animation: slideUp 0.3s ease-out;
 }
 
@@ -554,48 +554,6 @@ legend {
     color: #ccc;
 }
 
-/* Academic Table Requirement Styles */
-.academic-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 3rem 0;
-    background-color: var(--bg-panel);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.academic-table caption {
-    caption-side: top;
-    font-size: 1.2rem;
-    color: var(--accent-green);
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.academic-table th, .academic-table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid var(--bg-dark);
-}
-
-.academic-table th {
-    background-color: #1a2026;
-    color: var(--text-light);
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
-
-.academic-table td {
-    font-size: 0.95rem;
-}
-
-/* Nested lists requirement styles */
-.about-lists ul {
-    margin-left: 20px;
-    margin-bottom: 15px;
-    color: #ccc;
-    line-height: 1.6;
-}
 
 /* =========================================
    PROFILE PAGE (Tabs & Bio)
