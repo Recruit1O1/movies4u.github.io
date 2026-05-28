@@ -76,7 +76,6 @@
                     <div class="movie-card"><a href="#"><img src="images/Blade.png" alt="Blade"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/Expendables2.png" alt="Expendables 2"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/BadBoys.png" alt="Bad Boys"></a></div>
-                    <div class="movie-card"><a href="#"><img src="images/BulletTrain.png" alt="Bullet Train"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/Rambo.png" alt="Rambo"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/WhiteHouseDown.png" alt="White House Down"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/EdgeOfTomorrow.png" alt="Edge of Tomorrow"></a></div>
@@ -116,10 +115,7 @@
                 <button class="scroll-btn left" onclick="scrollGrid(this, -800)">❮</button>
                 <div class="movie-grid">
                     <div class="movie-card"><a href="#"><img src="images/Us.png" alt="Us"></a></div>
-                    <div class="movie-card"><a href="#"><img src="images/Weapons.png" alt="Weapons"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/UntilDawn.png" alt="Until Dawn"></a></div>
-                    <div class="movie-card"><a href="#"><img src="images/TheMummy.png" alt="The Mummy"></a></div>
-                    <div class="movie-card"><a href="#"><img src="images/It.png" alt="It"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/TrainToBusan.png" alt="Train to Busan"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/TotallyKiller.png" alt="Totally Killer"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/DarkNuns.png" alt="Dark Nuns"></a></div>
@@ -139,7 +135,6 @@
                 <div class="movie-grid">
                     <div class="movie-card"><a href="#"><img src="images/WarMachine.png" alt="War Machine"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/PacificRim.png" alt="Pacific Rim"></a></div>
-                    <div class="movie-card"><a href="#"><img src="images/Interstellar.png" alt="Interstellar"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/Finch.png" alt="Finch"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/ReadyPlayerOne.png" alt="Ready Player One"></a></div>
                     <div class="movie-card"><a href="#"><img src="images/TheGreatFlood.png" alt="The Great Flood"></a></div>
@@ -153,7 +148,7 @@
         </section>
         
         <div class="disclaimer-box">
-            <p><strong>Published Website URL:</strong> <a href="#" style="color: var(--accent-green);"><a href="https://recruit1o1.github.io/movies4u.github.io/">https://recruit1o1.github.io/movies4u.github.io/</a></a></p>
+            <p><strong>Published Website URL:</strong> <a href="#" style="color: var(--accent-green);">https://www.moviesforu.com</a></p>
             <br>
             <p style="font-size: 0.85rem; color: #aaa;">Disclaimer: This website is created for education and non-commercial use only. It is an assignment for completion of unit, DBI211 Fundamentals of Web Technology based on the Foundation (IT/Multimedia) course from Swinburne University of Technology Sarawak Campus.</p>
         </div>
@@ -212,14 +207,11 @@
 </div>
 
 <script>
-    
-    /* Function to smoothly scroll the horizontal movie grids */
     function scrollGrid(buttonElement, scrollOffset) {
         const grid = buttonElement.parentElement.querySelector('.movie-grid');
         grid.scrollBy({ left: scrollOffset, behavior: 'smooth' });
     }
 
-    /* Event listener checks local storage to modify DOM based on login state */
     document.addEventListener('DOMContentLoaded', () => {
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
         const protectedLinks = document.querySelectorAll('.protected-link');
@@ -247,7 +239,6 @@
         }
     });
 
-    /* Live search: iterates through movie cards and hides those that don't match query */
     function filterMovies() {
         const query = document.getElementById('searchInput').value.toLowerCase();
         const cards = document.querySelectorAll('.movie-card');
@@ -284,7 +275,6 @@
         document.getElementById(modalId).style.display = 'none';
     }
 
-    /* Generic form submission handler */
     function submitForm(event, modalId, successMessage) {
         event.preventDefault();
         alert(successMessage); 
